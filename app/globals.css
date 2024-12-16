@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.for-prod{
+    max-width: 67%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* ========================================== TAILWIND STYLES */
 @layer base {
   /* Remove scrollbar */
@@ -39,7 +47,9 @@
   .right-sidebar {
     @apply hidden xl:flex;
   }
-
+  .for-production {
+    @apply 
+  }
   .clip-text {
     @apply bg-clip-text text-transparent;
   }
