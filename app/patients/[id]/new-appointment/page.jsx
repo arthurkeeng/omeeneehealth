@@ -40,7 +40,7 @@ export default async function NewAppointmentPage({params} ) {
       height={1000}
       width={500}
       alt="appointment"
-      className="side-img max-w-[390px] bg-bottom"
+      className="side-img max-w-[40%] bg-bottom"
       />
     </div>
   );
