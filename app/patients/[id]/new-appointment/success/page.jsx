@@ -20,7 +20,7 @@ const SuccessPage = async ({params  , searchParams} ) => {
   const doctor = Doctors.find(doc => doc.name === appointment.primaryPhysician)
   return (
     <div className="flex h-screen max-h-screen px-[5%]">
-      <div className="success-img">
+      <div className="success-img for-prod">
         <Link href='/' className="flex align-middle">
           <Image
           src='/assets/icons/medical.png'
