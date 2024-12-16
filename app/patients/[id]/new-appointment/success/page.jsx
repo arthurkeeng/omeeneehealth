@@ -39,13 +39,13 @@ const SuccessPage = async ({params  , searchParams} ) => {
           alt="success"
           />
         <h2 className="header mb-6 max-w-[600px] text-center">
-          Your <span className="text-green-500">Appointment request</span>
+          Your <span className="text-green-500">Appointment request </span>
           has been successfully submitted !
         </h2>
         <p>We will be in touch shortly to confirm appointment</p>
         </section>
         <section className="request-details">
-          <p>Requested appointment details: </p>
+          <p className = "req-app">Requested appointment details: </p>
           <div className="flex items-center gap-3">
             <Image
             src={doctor.image}
