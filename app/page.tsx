@@ -1,4 +1,4 @@
-// @ts-expect-error
+
 
 import PatientForm from "@/components/forms/PatientForm";
 import PasskeyModal from "@/components/PasskeyModal";
@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-<<<<<<< HEAD
+<<<<<<< HE
 }
 export default async function Home({params , searchParams} : SearchParamProps) {
 =======

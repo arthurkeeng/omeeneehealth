@@ -8,13 +8,15 @@ import Link from "next/link"
 
 
 
-const SuccessPage = async ({params  , searchParams} : SearchParamProps) => {
+// const SuccessPage = async ({params  , searchParams} : SearchParamProps) => {
+const SuccessPage = async ({params  , searchParams} ) => {
   const {id} = await params
   const {appointmentId } = await searchParams 
   console.log(appointmentId)
   // const appointmentId = await (searchParams?.appointmentId as string || "")
 
-  const appointment = await getAppointment(appointmentId as string)
+  // const appointment = await getAppointment(appointmentId as string)
+  const appointment = await getAppointment(appointmentId)
 
   const doctor = Doctors.find(doc => doc.name === appointment.primaryPhysician)
   return (
@@ -47,7 +49,8 @@ const SuccessPage = async ({params  , searchParams} : SearchParamProps) => {
           <p>Requested appointment details: </p>
           <div className="flex items-center gap-3">
             <Image
-            src={doctor?.image!}
+            src={doctor.image}
+            // src={doctor?.image!}
             alt="doctor"
             width={100}
             height={100}
