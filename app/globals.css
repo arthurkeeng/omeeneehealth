@@ -10,6 +10,11 @@
     flex-direction: column;
     align-items: center;
 }
+
+.req-app{
+ margin: auto;
+    width: fit-content;
+}
 /* ========================================== TAILWIND STYLES */
 @layer base {
   /* Remove scrollbar */
