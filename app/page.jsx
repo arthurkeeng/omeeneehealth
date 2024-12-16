@@ -6,12 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-<<<<<<< HE
-}
-export default async function Home({params , searchParams} : SearchParamProps) {
-=======
+
+// export default async function Home({params , searchParams} : SearchParamProps) {
+
 export default async function Home({params , searchParams}) {
->>>>>>> 6f30e000766c2a5e512ea562fc34ea2b3f2d6a85
+
   const {admin} = await searchParams
   return (
     <div className="max-h-screen flex h-screen">
