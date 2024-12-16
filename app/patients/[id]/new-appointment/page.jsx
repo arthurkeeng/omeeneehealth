@@ -38,7 +38,7 @@ export default async function NewAppointmentPage({params} ) {
       <Image 
       src='/assets/images/appointment-img.png'
       height={1000}
-      width={1000}
+      width={500}
       alt="appointment"
       className="side-img max-w-[390px] bg-bottom"
       />
