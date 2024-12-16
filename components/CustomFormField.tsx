@@ -1,5 +1,6 @@
 'use client'
 import  { useState } from "react";
+
 import DatePicker from "react-datepicker";
 import {
    
@@ -35,6 +36,8 @@ import { Label } from "./ui/label";
     renderSkeleton ?: (field : any) => React.ReactNode
 
   }
+
+  type E164Number = string;
 const CustomFormField = ( props : CustomProps) => {
     const {control , name , fieldType , label} = props
   return (
