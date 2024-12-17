@@ -48,10 +48,10 @@ export const getRecentAppointmentList = async () => {
         [Query.orderDesc("$createdAt")]
     )
     const initialCounts = {
-      scheduledCount : 0 , 
-      pendingCount : 0 , 
-      cancelledCount : 0
-    }
+      scheduledCount: 0,
+      pendingCount: 0,
+      cancelledCount: 0,
+    };
 
     const counts = (appointments.documents as Appointment[]).reduce(
       (acc, appointment) => {
@@ -70,16 +70,21 @@ export const getRecentAppointmentList = async () => {
       },
       initialCounts
     );
-  const data = {
-    totalCount : appointments.total, ...counts , documents: appointments.documents
 
-  }
+    const data = {
+      totalCount: appointments.total,
+      ...counts,
+      documents: appointments.documents,
+    };
 
-  return parseStringify(data)
+    return parseStringify(data);
   } catch (error) {
-    console.log(error)
+    console.error(
+      "An error occurred while retrieving the recent appointments:",
+      error
+    );
   }
-}
+};
 
 export const updateAppointment = async ({
 appointmentId , userId , appointment , type
