@@ -14,7 +14,8 @@ const AdminPage = async () => {
  
   return (
     <div className="mx-auto flex max-w-7xl flex-col space-y-14">
-      <header className="admin-header">
+      <p>the admin page</p>
+{/*  <header className="admin-header">
         <Link href="/" className="cursor-pointer flex">
           <Image
             src="/assets/icons/medical.png"
@@ -59,7 +60,7 @@ const AdminPage = async () => {
         </section>
 
         <DataTable  columns={columns} data={appointments.documents} />
-      </main>
+      </main> */}
     </div>
   );
 };
