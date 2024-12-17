@@ -1,51 +1,66 @@
-
-
-import PatientForm from "@/components/forms/PatientForm";
-import PasskeyModal from "@/components/PasskeyModal";
 import Image from "next/image";
 import Link from "next/link";
 
+import { StatCard } from "@/components/StatCard";
+import { getRecentAppointmentList } from "@/lib/actions/appointment.action";
+import { DataTable } from "@/components/table/DataTable";
+import { columns } from "@/components/table/Columns";
 
 
-// export default async function Home({params , searchParams} : SearchParamProps) {
 
-export default async function Home({params , searchParams}) {
+const AdminPage = async () => {
+  const appointments = await getRecentAppointmentList();
 
-  const {admin} = await searchParams
   return (
-    <div className="max-h-screen flex h-screen">
-      {/* otp verification /passkey modal */}
-      {admin && <PasskeyModal/>}
-      <section className="remove-scrollbar container my-auto">
-        <div className="sub-container max-w-[496px]">
-          <div className="flex align-middle ">
-
+    <div className="mx-auto flex max-w-7xl flex-col space-y-14">
+      <header className="admin-header">
+        <Link href="/" className="cursor-pointer flex">
           <Image
-          src='/assets/icons/medical.png'
-          width={30}
-          height={30}
-          alt="patient"
-          className="mb-12 w-fit rounded-lg mr-3"
+            src="/assets/icons/medical.png"
+            height={32}
+            width={162}
+            alt="logo"
+            className="h-8 w-fit"
           />
-          <h1 className="font-bold text-2xl">OmeeneeHealth
-            </h1>
-          </div>
-          <PatientForm/>
-          <div className="text-14-regular mt-20 flex justify-between ">
-          <p className="text-dark-600 justify-items-end xl:text-left">
-            © 2024 omeeneeHealth
-            </p>
-            <Link href="/?admin=true" className="text-green-500">Admin</Link>
-          </div>
-        </div>
-      </section>
-      <Image 
-      src='/assets/images/onboarding-img.png'
-      height={1000}
-      width={1000}
-      alt="patient"
-      className="side-img max-w-[50%]"
-      />
+          <p className="font-bold ml-2">OmeeneeHealth</p>
+        </Link>
+
+        <p className="text-16-semibold">Admin Dashboard</p>
+      </header>
+
+      <main className="admin-main">
+        <section className="w-full space-y-4">
+          <h1 className="header">Welcome 👋</h1>
+          <p className="text-dark-700">
+            Start the day with managing new appointments
+          </p>
+        </section>
+
+        <section className="admin-stat">
+          <StatCard
+            type="appointments"
+            count={appointments.scheduledCount}
+            label="Scheduled appointments"
+            icon={"/assets/icons/appointments.svg"}
+          />
+          <StatCard
+            type="pending"
+            count={appointments.pendingCount}
+            label="Pending appointments"
+            icon={"/assets/icons/pending.svg"}
+          />
+          <StatCard
+            type="cancelled"
+            count={appointments.cancelledCount}
+            label="Cancelled appointments"
+            icon={"/assets/icons/cancelled.svg"}
+          />
+        </section>
+
+        <DataTable  columns={columns} data={appointments.documents} />
+      </main>
     </div>
   );
-}
+};
+
+export default AdminPage;
